@@ -1,14 +1,3 @@
-version: 0.2
-env:
-   SPECTRAL_DSN: https://spu-a8d18d40fdaa4b2391226b5ad7faa7f7@spectral-us.checkpoint.com
-phases: 
-    build: 
-        commands: 
-            - npm i --save 
-    post_build:
-        commands:
-           - curl -L "https://spectral-eu.checkpoint.com/latest/x/sh?dsn=$SPECTRAL_DSN"| sh
-           - SPECTRAL_DSN=https://spu-a8d18d40fdaa4b2391226b5ad7faa7f7@spectral-us.checkpoint.com $HOME/.spectral/spectral scan --ok  --include-tags base,audit
 artifacts: 
     files: 
         - '**/*'
